@@ -67,6 +67,14 @@ public class User
         return name;
     }//END getName
     
+    public boolean equals( User other)
+    {
+        if(this.name==other.name)
+        {
+            return true;
+        }
+        return false;
+    }
     
     
     
