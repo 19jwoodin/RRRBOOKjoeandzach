@@ -38,10 +38,21 @@ public class User
         retStr += "Name: \t\t" + name + "\n";
         retStr += "Age: \t\t" + age + "\n";
         retStr += "Hometown: \t" + hometown + "\n";
-        retStr += "Schools: \t" + schools + "\n";
-        retStr += "Friends List: \t" + ""+ "\n";
+        retStr += "Schools: \t";
+        if(schools[0]==null)
+        retStr+="none";
+        else
+        retStr+=schools[0] + ",";
+        if(schools[1]!=null)
+        retStr+=schools[1] + ",";
+        if(schools[2]!=null)
+        retStr+=schools[2] + "\n";
+        retStr += "Friends List: \t";
         //Need to include schools and friendslist
-        
+        for(int i =0; i<friendsList.size();i++)
+        {
+            retStr+=friendsList.get(i);
+        }
         
         
         return retStr;
