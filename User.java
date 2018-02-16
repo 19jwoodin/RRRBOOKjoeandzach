@@ -35,23 +35,24 @@ public class User
     public String toString()
     {
         String retStr = "";
-        retStr += "Name: \t" + name + "\n";
-        retStr += "Age: \t" + age + "\n";
-        retStr += "Hometown: \t" + hometown + "\n";
-        retStr += "Schools: \t";
+        retStr += "Name: " + name + "\n";
+        retStr += "Age: " + age + "\n";
+        retStr += "Hometown: " + hometown + "\n";
+        retStr += "Schools: ";
         for(int i=0;i<schools.length;i++)
         {
             if(schools[i]!=null)
             {
-                retStr+= "School "+schools[i]+"\n";
+                retStr+= "\n "+schools[i];
             }
+            
         }
-        
-        retStr += "Friends List: \t";
+       
+        retStr += "\nFriends List: " +"\n";
         //Need to include schools and friendslist
         for(int i =0; i<friendsList.size();i++)
         {
-            retStr+=friendsList.get(i).getName()+" ";
+            retStr+=" "+friendsList.get(i).getName()+" \n";
         }
         retStr+="\n";
         
