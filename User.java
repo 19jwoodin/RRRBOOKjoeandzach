@@ -77,6 +77,20 @@ public class User
         
         return false;
     }
-
     
+    public void addFriend(User friend)
+    {
+        friendsList.add(friend);
+    }
+    
+    public void unfriend(String namefriend)
+    {
+        for(int i=0;i<friendsList.size();i++)
+        {
+            if(friendsList.get(i).name.equals(namefriend))
+            {
+                friendsList.remove(i);
+            }
+        }
+    }
 }//END CLASS
