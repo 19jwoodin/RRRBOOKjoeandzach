@@ -93,4 +93,11 @@ public class User
             }
         }
     }
+    
+    public int countFriends()
+    {
+        return friendsList.size();
+    }
+    
+    
 }//END CLASS
