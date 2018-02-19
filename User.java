@@ -8,7 +8,7 @@ public class User
     private String hometown;
     private String[] schools;
     private ArrayList<User> friendsList;
-    
+
     //CONSTRUCTOR - DONE FOR YOU
     //NOTE - it leaves the friendsList empty
     public User(String n, int a, String h, String[] s)
@@ -18,16 +18,15 @@ public class User
         hometown = h;
         schools = s;
         friendsList = new ArrayList<User>(); 
-        
+
     }//END Constructor
-    
+
     // DONE FOR YOU
     // Accepts a List of Users that will replace the current friendsList
     public void bulkAddFriends(ArrayList<User> u)
     {
         friendsList = u;
     }//END bulkAddFriends
-    
 
     
     // STARTED FOR YOU
@@ -45,9 +44,9 @@ public class User
             {
                 retStr+= "\n "+schools[i];
             }
-            
+
         }
-       
+
         retStr += "\nFriends List: " +"\n";
         //Need to include schools and friendslist
         for(int i =0; i<friendsList.size();i++)
@@ -55,28 +54,29 @@ public class User
             retStr+=" "+friendsList.get(i).getName()+" \n";
         }
         retStr+="\n";
-        
+
         return retStr;
     }//END toString
-    
-    
+
     // DONE FOR YOU
     // Returns the User's name
     public String getName()
     {
         return name;
     }//END getName
-    
-    public boolean equals( User other)
+
+    //equals(User other) - this User and other are equal if name, age, and hometown match.
+
+    public boolean equals(User other)
     {
-        if(this.name==other.name)
-        {
-            return true;
-        }
+        if(this.name.equals(other.name))
+        
+            if(this.age==other.age)
+                if(this.hometown.equals(other.hometown))
+                    return true;
+        
         return false;
     }
-    
-    
-    
+
     
 }//END CLASS
