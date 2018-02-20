@@ -4,6 +4,7 @@ public class RamBook
 {
     //https://github.com/19jwoodin/RRRBOOKjoeandzach
     //INSTANCE FIELD
+    //goodVersion
     public ArrayList<User> allUsers;
 
 

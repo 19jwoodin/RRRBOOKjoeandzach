@@ -9,25 +9,31 @@ public class Main
         User zach = r.getUser("Kushnir");
         User joe =r.getUser("Woodin");
         User ian = r.getUser("Ian");
-        System.out.print(zach.toString());
-        System.out.print(ian.toString());
+        System.out.println(zach.toString());
+        System.out.println(ian.toString());
         ArrayList<User> m= zach.getMutualFriends(ian);
         for(User x: m)
         {
             System.out.println(x.getName());
         }
         joe.addFriend(r.getUser("Sahil"));
-        System.out.print(joe.toString());
+        System.out.println(joe.toString());
         ArrayList<User> z= joe.getHometownFriends();
         for(User x: z)
         {
             System.out.println(x.getName());
         }
-        
+        System.out.println();
         ArrayList<User> v= joe.getSchoolmates();
         for(User x: v)
         {
-            System.out.println(x.getName());
+            System.out.println("schoolsMates: "+x.getName());
         }
+        
+        User s= joe.suggestAFriend();
+        System.out.println("suggested friend for joe: "+s.getName());
+        
+        User b =r.getUser("Woodin");
+        System.out.println(b.equals(joe));
     }
 }

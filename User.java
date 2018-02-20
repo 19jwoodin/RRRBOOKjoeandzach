@@ -1,7 +1,5 @@
- 
 
 import java.util.*;
-
 public class User
 {
     //INSTANCE FIELDS
@@ -30,7 +28,6 @@ public class User
         friendsList = u;
     }//END bulkAddFriends
 
-    
     // STARTED FOR YOU
     // Should print out all information for the user, nicely formatted
     public String toString()
@@ -67,24 +64,28 @@ public class User
         return name;
     }//END getName
 
+    public String getSchool(int i)
+    {
+        return this.schools[i];
+    }
     //equals(User other) - this User and other are equal if name, age, and hometown match.
 
     public boolean equals(User other)
     {
         if(this.name.equals(other.name))
-        
+
             if(this.age==other.age)
                 if(this.hometown.equals(other.hometown))
                     return true;
-        
+
         return false;
     }
-    
+
     public void addFriend(User friend)
     {
         friendsList.add(friend);
     }
-    
+
     public void unfriend(String namefriend)
     {
         for(int i=0;i<friendsList.size();i++)
@@ -95,12 +96,12 @@ public class User
             }
         }
     }
-    
+
     public int countFriends()
     {
         return friendsList.size();
     }
-    
+
     public ArrayList getMutualFriends(User other)
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -116,7 +117,7 @@ public class User
         }
         return list;
     }
-    
+
     public ArrayList getHometownFriends()
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -129,7 +130,7 @@ public class User
         }
         return list;
     }
-    
+
     public ArrayList getSchoolmates()
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -137,18 +138,18 @@ public class User
         {
             for(int x=0;x<schools.length;x++)
             {
-                if(!(friendsList.get(i).schools[x]==null))
+                if(!(friendsList.get(i).getSchool(x)==null))
                 {
-                if(schools[x].equals(friendsList.get(i).schools[x]))
-                {
-                    list.add(friendsList.get(i));
+                    if(this.getSchool(x)==(friendsList.get(i).getSchool(x)))
+                    {
+                        list.add(friendsList.get(i));
+                    }
                 }
-            }
             }
         }
         return list;
     }
-    
+
     public User suggestAFriend()
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -156,17 +157,37 @@ public class User
         {
             for(int x=0;x<friendsList.get(i).friendsList.size();x++)
             {
-                for(int y=0;y<friendsList.size();i++)
-                if(!(friendsList.get(i).friendsList.get(x).equals(friendsList.get(y))))
+
+                if(friendsList.get(i).friendsList.get(x).hometown.equals(hometown))
                 {
-                    if(friendsList.get(i).friendsList.get(x).hometown.equals(hometown))
-                    {
-                        list.add(friendsList.get(i).friendsList.get(x));
-                    }
+                    
+                    list.add(friendsList.get(i).friendsList.get(x));
                 }
+
             }
         }
-        return list.get(0);
+        for(int i =0; i<friendsList.size();i++)
+        {
+            for(int x=0;x<list.size();x++)
+            {
+                if(this.friendsList.get(i).equals(list.get(x)))
+                {
+                    list.remove(x);
+                }
+                
+            }
+        }
+        for(int i =0; i<list.size();i++)
+        {
+            if(list.get(i).equals(this))
+            {
+                list.remove(i);
+            }
+        }
+        if(list.size()==0)
+            return null;
+        else
+            return list.get(0);
     }
 }//END CLASS
 
