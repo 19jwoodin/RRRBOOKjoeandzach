@@ -1,3 +1,5 @@
+ 
+
 import java.util.*;
 
 public class User
@@ -28,6 +30,7 @@ public class User
         friendsList = u;
     }//END bulkAddFriends
 
+    
     // STARTED FOR YOU
     // Should print out all information for the user, nicely formatted
     public String toString()
@@ -68,47 +71,22 @@ public class User
 
     public boolean equals(User other)
     {
-        <<<<<<< HEAD
-        if(this.name.equals(other.name)&&this.age.equals(other.age)&&this.hometown==other.hometown)
-        {
-            return true;
-        }
-        else
-            =======
         if(this.name.equals(other.name))
-
+        
             if(this.age==other.age)
                 if(this.hometown.equals(other.hometown))
                     return true;
-
-        >>>>>>> 8b835bc63565514a383fc3d66d2cfbc2711f3ccc
+        
         return false;
     }
-
-    <<<<<<< HEAD
-    public void addFriend(User f)
+    
+    public void addFriend(User friend)
     {
-        friendsList.add(f);
-        =======
-        public void addFriend(User friend)
-        {
         friendsList.add(friend);
-        >>>>>>> 8b835bc63565514a383fc3d66d2cfbc2711f3ccc
     }
-
-    <<<<<<< HEAD
-    public void unfriend(User f)
+    
+    public void unfriend(String namefriend)
     {
-        for(int i=0;i<friendsList.size();i++)
-        {
-            if(friendsList.get(i)==f)
-            {
-                friendsList.remove(i);
-            }
-        }
-        =======
-        public void unfriend(String namefriend)
-        {
         for(int i=0;i<friendsList.size();i++)
         {
             if(friendsList.get(i).name.equals(namefriend))
@@ -117,18 +95,12 @@ public class User
             }
         }
     }
-
-    public int countFriends()
-    {
-        return friendsList.size();
-        >>>>>>> 8b835bc63565514a383fc3d66d2cfbc2711f3ccc
-    }
-
+    
     public int countFriends()
     {
         return friendsList.size();
     }
-
+    
     public ArrayList getMutualFriends(User other)
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -144,7 +116,7 @@ public class User
         }
         return list;
     }
-
+    
     public ArrayList getHometownFriends()
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -157,7 +129,7 @@ public class User
         }
         return list;
     }
-
+    
     public ArrayList getSchoolmates()
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -173,7 +145,7 @@ public class User
         }
         return list;
     }
-
+    
     public User suggestAFriend()
     {
         ArrayList<User> list = new ArrayList<User>();
@@ -182,15 +154,16 @@ public class User
             for(int x=0;x<friendsList.get(i).friendsList.size();x++)
             {
                 for(int y=0;y<friendsList.size();i++)
-                    if(!(friendsList.get(i).friendsList.get(x).equals(friendsList.get(y))))
+                if(!(friendsList.get(i).friendsList.get(x).equals(friendsList.get(y))))
+                {
+                    if(friendsList.get(i).friendsList.get(x).hometown.equals(hometown))
                     {
-                        if(friendsList.get(i).friendsList.get(x).hometown.equals(hometown))
-                        {
-                            list.add(friendsList.get(i).friendsList.get(x));
-                        }
+                        list.add(friendsList.get(i).friendsList.get(x));
                     }
+                }
             }
         }
         return list.get(0);
     }
 }//END CLASS
+
