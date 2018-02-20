@@ -137,10 +137,13 @@ public class User
         {
             for(int x=0;x<schools.length;x++)
             {
+                if(!(friendsList.get(i).schools[x]==null))
+                {
                 if(schools[x].equals(friendsList.get(i).schools[x]))
                 {
                     list.add(friendsList.get(i));
                 }
+            }
             }
         }
         return list;
