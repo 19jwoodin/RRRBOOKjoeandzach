@@ -69,7 +69,10 @@ public class RamBook
         }
     }//END printUsers
         
-    
+    public void addUser(User u)
+    {
+        allUsers.add(u);
+    }
     
     
 }//END CLASS
