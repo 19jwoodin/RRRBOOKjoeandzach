@@ -8,7 +8,7 @@ public class User
     private String hometown;
     private String[] schools;
     private ArrayList<User> friendsList;
-    
+
     //CONSTRUCTOR - DONE FOR YOU
     //NOTE - it leaves the friendsList empty
     public User(String n, int a, String h, String[] s)
@@ -18,16 +18,15 @@ public class User
         hometown = h;
         schools = s;
         friendsList = new ArrayList<User>(); 
-        
+
     }//END Constructor
-    
+
     // DONE FOR YOU
     // Accepts a List of Users that will replace the current friendsList
     public void bulkAddFriends(ArrayList<User> u)
     {
         friendsList = u;
     }//END bulkAddFriends
-    
 
     
     // STARTED FOR YOU
@@ -45,9 +44,9 @@ public class User
             {
                 retStr+= "\n "+schools[i];
             }
-            
+
         }
-       
+
         retStr += "\nFriends List: " +"\n";
         //Need to include schools and friendslist
         for(int i =0; i<friendsList.size();i++)
@@ -55,33 +54,50 @@ public class User
             retStr+=" "+friendsList.get(i).getName()+" \n";
         }
         retStr+="\n";
-        
+
         return retStr;
     }//END toString
-    
-    
+
     // DONE FOR YOU
     // Returns the User's name
     public String getName()
     {
         return name;
     }//END getName
-    
-    public boolean equals( User other)
+
+    //equals(User other) - this User and other are equal if name, age, and hometown match.
+
+    public boolean equals(User other)
     {
+<<<<<<< HEAD
         if(this.name.equals(other.name)&&this.age.equals(other.age)&&this.hometown==other.hometown)
         {
             return true;
         }
         else
+=======
+        if(this.name.equals(other.name))
+        
+            if(this.age==other.age)
+                if(this.hometown.equals(other.hometown))
+                    return true;
+        
+>>>>>>> 8b835bc63565514a383fc3d66d2cfbc2711f3ccc
         return false;
     }
     
+<<<<<<< HEAD
     public void addFriend(User f)
     {
         friendsList.add(f);
+=======
+    public void addFriend(User friend)
+    {
+        friendsList.add(friend);
+>>>>>>> 8b835bc63565514a383fc3d66d2cfbc2711f3ccc
     }
     
+<<<<<<< HEAD
     public void unfriend(User f)
     {
         for(int i=0;i<friendsList.size();i++)
@@ -91,6 +107,22 @@ public class User
                 friendsList.remove(i);
             }
         }
+=======
+    public void unfriend(String namefriend)
+    {
+        for(int i=0;i<friendsList.size();i++)
+        {
+            if(friendsList.get(i).name.equals(namefriend))
+            {
+                friendsList.remove(i);
+            }
+        }
+    }
+    
+    public int countFriends()
+    {
+        return friendsList.size();
+>>>>>>> 8b835bc63565514a383fc3d66d2cfbc2711f3ccc
     }
     
     public int countFriends()
