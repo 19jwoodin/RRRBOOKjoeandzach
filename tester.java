@@ -8,6 +8,7 @@ public class tester
         //r.printAllUsers();
         User zach = new User("Kushnir", 22, "Cincinnati", new String[]{"Bengal HS", "Ohio St.", null});
         r.addUser(zach);
+        zach.addFriend(r.getUser("Andrew"));
         System.out.print(zach.toString());
     }
 }

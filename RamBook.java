@@ -4,7 +4,7 @@ public class RamBook
 {
     //https://github.com/19jwoodin/RRRBOOKjoeandzach
     //INSTANCE FIELD
-    private ArrayList<User> allUsers;
+    public ArrayList<User> allUsers;
 
 
     //CONSTRUCTOR
@@ -74,5 +74,15 @@ public class RamBook
         allUsers.add(u);
     }
     
-    
+    public User getUser(String name)
+    {
+        for(int i=0; i<allUsers.size();i++)
+        {
+            if(allUsers.get(i).getName().equals(name))
+            {
+                return allUsers.get(i);
+            }
+        }
+        return null;
+    }
 }//END CLASS
