@@ -8,6 +8,7 @@ public class Main
         //r.printAllUsers();
         System.out.print("Are you new to RamBook? ");
         String anser =Keyboard.readString();
+        anser=anser.toLowerCase();
         while(!(anser.equals("yes")||anser.equals("no")))
         {
             System.out.print("I'm sorry, Are you new to Rambook? ");
