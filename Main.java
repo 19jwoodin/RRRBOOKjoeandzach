@@ -6,34 +6,57 @@ public class Main
     {
         RamBook r = new RamBook();
         //r.printAllUsers();
-        User zach = r.getUser("Kushnir");
-        User joe =r.getUser("Woodin");
-        User ian = r.getUser("Ian");
-        System.out.println(zach.toString());
-        System.out.println(ian.toString());
-        ArrayList<User> m= zach.getMutualFriends(ian);
-        for(User x: m)
+        System.out.print("Are you new to RamBook? ");
+        String anser =Keyboard.readString();
+        while(!(anser.equals("yes")||anser.equals("no")))
         {
-            System.out.println(x.getName());
+            System.out.print("I'm sorry, Are you new to Rambook? ");
+            anser =Keyboard.readString();
         }
-        joe.addFriend(r.getUser("Sahil"));
-        System.out.println(joe.toString());
-        ArrayList<User> z= joe.getHometownFriends();
-        for(User x: z)
+        if(anser.equals("yes"))
         {
-            System.out.println(x.getName());
+            System.out.print("\fWhat is your name? ");
+            String name = Keyboard.readString();
+            System.out.println("Nice to meet you, "+name);
+            System.out.print("How old are you? ");
+            int age= Keyboard.readInt();
+            System.out.print("Where are you from? ");
+            String hometown= Keyboard.readString();
+            System.out.print("What high school did you go to?(say none for no high school) ");
+            String hs = Keyboard.readString();
+            String[] schools = new String[]{null,null,null};
+            if(!(hs.equals("none")))
+            {
+                System.out.print("What undergrad school did you go to?(say none for no school) ");
+                String underg =Keyboard.readString();
+                if(underg.equals("none"))
+                {
+                    schools[0]=hs;
+                }
+                else
+                {
+                    System.out.print("What grad school did you go to?(say none for no school) ");
+                    String grad =Keyboard.readString();
+                    if(grad.equals("none"))
+                    {
+                        schools[0]=hs;
+                        schools[1]=underg;
+                    }
+                    else
+                    {
+                        schools[0]=hs;
+                        schools[1]=underg;
+                        schools[2] =grad;
+                    }
+                }
+            }
+            User user1=new User(name,age,hometown,schools);
+            System.out.print("\f"+user1.toString());
         }
-        System.out.println();
-        ArrayList<User> v= joe.getSchoolmates();
-        for(User x: v)
+        else
         {
-            System.out.println("schoolsMates: "+x.getName());
+            
         }
         
-        User s= joe.suggestAFriend();
-        System.out.println("suggested friend for joe: "+s.getName());
-        
-        User b =r.getUser("Woodin");
-        System.out.println(b.equals(joe));
     }
 }

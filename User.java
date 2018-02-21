@@ -157,13 +157,10 @@ public class User
         {
             for(int x=0;x<friendsList.get(i).friendsList.size();x++)
             {
-
                 if(friendsList.get(i).friendsList.get(x).hometown.equals(hometown))
                 {
-                    
                     list.add(friendsList.get(i).friendsList.get(x));
                 }
-
             }
         }
         for(int i =0; i<friendsList.size();i++)
@@ -174,7 +171,6 @@ public class User
                 {
                     list.remove(x);
                 }
-                
             }
         }
         for(int i =0; i<list.size();i++)
