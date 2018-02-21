@@ -180,10 +180,24 @@ public class User
                 list.remove(i);
             }
         }
+        int num=0;
+        int num2=0;
         if(list.size()==0)
-            return null;
+        {
+            num=(int)Math.random()*friendsList.size();
+            num2=(int)Math.random()*friendsList.get(num).friendsList.size();
+            while(friendsList.get(num).friendsList.get(num2).equals(this))
+            {
+                num=(int)Math.random()*friendsList.size();
+                num2=(int)Math.random()*friendsList.get(num).friendsList.size();
+            }
+            return friendsList.get(num).friendsList.get(num2);
+        }
         else
-            return list.get(0);
+        {
+            num = (int)Math.random()*list.size();
+            return list.get(num);
+        }
     }
 }//END CLASS
 
