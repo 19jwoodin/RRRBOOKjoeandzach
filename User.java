@@ -102,7 +102,7 @@ public class User
         return friendsList.size();
     }
 
-    public ArrayList getMutualFriends(User other)
+    public ArrayList<User> getMutualFriends(User other)
     {
         ArrayList<User> list = new ArrayList<User>();
         for(int i =0; i<this.friendsList.size();i++)
@@ -118,7 +118,7 @@ public class User
         return list;
     }
 
-    public ArrayList getHometownFriends()
+    public ArrayList<User> getHometownFriends()
     {
         ArrayList<User> list = new ArrayList<User>();
         for(int i =0; i<friendsList.size();i++)
@@ -131,7 +131,7 @@ public class User
         return list;
     }
 
-    public ArrayList getSchoolmates()
+    public ArrayList<User> getSchoolmates()
     {
         ArrayList<User> list = new ArrayList<User>();
         for(int i =0; i<friendsList.size();i++)
