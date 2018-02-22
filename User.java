@@ -63,6 +63,11 @@ public class User
     {
         return name;
     }//END getName
+    
+    public ArrayList<User> getFriendsList()
+    {
+        return friendsList;
+    }
 
     public String getSchool(int i)
     {
