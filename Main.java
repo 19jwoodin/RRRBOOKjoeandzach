@@ -72,9 +72,11 @@ public class Main
                             System.out.print("\f"+user1.toString());
                             System.out.print("\n\n\n1. Exit ");
                             int ans2=Keyboard.readInt();
-                            if(ans2==1)
+                            while(ans2!=1)
                             {
-                                System.out.print("\f"+homePage(user1));
+                                System.out.print("\f"+user1.toString());
+                                System.out.print("\n\n\n1. Exit ");
+                                ans2=Keyboard.readInt();
                             }
                         }
                         else if(val==2) //addfriends
@@ -167,9 +169,11 @@ public class Main
                             System.out.print("\f"+user1.toString());
                             System.out.print("\n\n\n1. Exit");
                             int ans2=Keyboard.readInt();
-                            if(ans2==1)
+                            while(ans2!=1)
                             {
-                                System.out.print("\f"+homePage(user1));
+                                System.out.print("\f"+user1.toString());
+                                System.out.print("\n\n\n1. Exit ");
+                                ans2=Keyboard.readInt();
                             }
                         }
                         else if(val==2) //add frined
@@ -391,13 +395,22 @@ public class Main
                             {
                                 num=1;
                                 System.out.print("\f");
-                                System.out.println("Your Hometown Friends: \n");
-                                for(User f:htf)
+                                if(htf.size()>0)
                                 {
-                                    System.out.println(num+". "+f.getName());
-                                    num++;
+                                    System.out.println("Your Hometown Friends: \n");
+                                    for(User f:htf)
+                                    {
+                                        System.out.println(num+". "+f.getName());
+                                        num++;
+                                    }
+
+                                    System.out.print("\n\n1. Exit ");
                                 }
-                                System.out.print("\n\n\n1. Exit ");
+                                else
+                                {
+                                    System.out.println("You have no schoolmates");
+                                    System.out.print("\n\n1. Exit ");
+                                }
                                 ext=Keyboard.readInt();
                             }
                         }
@@ -427,13 +440,22 @@ public class Main
                             {
                                 num=1;
                                 System.out.print("\f");
-                                System.out.println("Your Schoolmates: \n");
-                                for(User f:gsm)
+                                if(gsm.size()>0)
                                 {
-                                    System.out.println(num+". "+f.getName());
-                                    num++;
+                                    System.out.println("Your Schoolmates: \n");
+                                    for(User f:gsm)
+                                    {
+                                        System.out.println(num+". "+f.getName());
+                                        num++;
+                                    }
+
+                                    System.out.print("\n\n1. Exit ");
                                 }
-                                System.out.print("\n\n\n1. Exit ");
+                                else
+                                {
+                                    System.out.println("You have no schoolmates");
+                                    System.out.print("\n\n1. Exit ");
+                                }
                                 ext=Keyboard.readInt();
                             }
                         }
@@ -483,9 +505,11 @@ public class Main
                             System.out.print("\f"+u.toString());
                             System.out.print("\n\n\n1. Exit");
                             int ans2=Keyboard.readInt();
-                            if(ans2==1)
+                            while(ans2!=1)
                             {
-                                System.out.print("\f"+homePage(u));
+                                System.out.print("\f"+u.toString());
+                                System.out.print("\n\n\n1. Exit ");
+                                ans2=Keyboard.readInt();
                             }
                         }
                         else if(val==2) //add for existing 
@@ -707,13 +731,22 @@ public class Main
                             {
                                 num=1;
                                 System.out.print("\f");
-                                System.out.println("Your Hometown Friends: \n");
-                                for(User f:htf)
+                                if(htf.size()>0)
                                 {
-                                    System.out.println(num+". "+f.getName());
-                                    num++;
+                                    System.out.println("Your Hometown Friends: \n");
+                                    for(User f:htf)
+                                    {
+                                        System.out.println(num+". "+f.getName());
+                                        num++;
+                                    }
+
+                                    System.out.print("\n\n1. Exit ");
                                 }
-                                System.out.print("\n\n\n1. Exit ");
+                                else
+                                {
+                                    System.out.println("You have no schoolmates");
+                                    System.out.print("\n\n1. Exit ");
+                                }
                                 ext=Keyboard.readInt();
                             }
                         }
@@ -722,9 +755,10 @@ public class Main
                             ArrayList<User> gsm=u.getSchoolmates();
                             int num=1;
                             System.out.print("\f");
-                            System.out.println("Your Schoolmates: \n");
+
                             if(gsm.size()>0)
                             {
+                                System.out.println("Your Schoolmates: \n");
                                 for(User f:gsm)
                                 {
                                     System.out.println(num+". "+f.getName());
@@ -743,13 +777,22 @@ public class Main
                             {
                                 num=1;
                                 System.out.print("\f");
-                                System.out.println("Your Schoolmates: \n");
-                                for(User f:gsm)
+                                if(gsm.size()>0)
                                 {
-                                    System.out.println(num+". "+f.getName());
-                                    num++;
+                                    System.out.println("Your Schoolmates: \n");
+                                    for(User f:gsm)
+                                    {
+                                        System.out.println(num+". "+f.getName());
+                                        num++;
+                                    }
+
+                                    System.out.print("\n\n1. Exit ");
                                 }
-                                System.out.print("\n\n\n1. Exit ");
+                                else
+                                {
+                                    System.out.println("You have no schoolmates");
+                                    System.out.print("\n\n1. Exit ");
+                                }
                                 ext=Keyboard.readInt();
                             }
                         }
@@ -765,9 +808,11 @@ public class Main
                             System.out.print("\f"+u.toString());
                             System.out.print("\n\n\n1. Exit ");
                             int ans2=Keyboard.readInt();
-                            if(ans2==1)
+                            while(ans2!=1)
                             {
-                                System.out.print("\f"+homePage(u));
+                                System.out.print("\f"+u.toString());
+                                System.out.print("\n\n\n1. Exit ");
+                                ans2=Keyboard.readInt();
                             }
                         }
                         else if(val==2) //addfriends
