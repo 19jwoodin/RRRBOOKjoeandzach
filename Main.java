@@ -84,14 +84,18 @@ public class Main
                                     System.out.println("Sorry this user does not exist");
                                     System.out.print("Would you like to try another name? ");
                                     String ans=Keyboard.readString();
-                                    while(!(ans.equals("yes")&&(ans.equals("no"))))
-                                    {
-                                        System.out.print("I'm Sorry, please try again: ");
-                                        ans=Keyboard.readString();
-                                    }
                                     if(ans.equals("no"))
                                     {
                                         addUser=1;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        while(!(ans.equals("yes")||(ans.equals("no"))))
+                                        {
+                                            System.out.print("I'm Sorry, please try again: ");
+                                            ans=Keyboard.readString();
+                                        }
                                     }
                                 }
                                 else
@@ -99,7 +103,7 @@ public class Main
                                     user1.addFriend(r.getUser(userName));
                                     System.out.print("Would you like to try another name? ");
                                     String ans=Keyboard.readString();
-                                    while(!(ans.equals("yes")&&ans.equals("no")))
+                                    while(!(ans.equals("yes")||ans.equals("no")))
                                     {
                                         System.out.print("I'm Sorry, please try again: ");
                                         ans=Keyboard.readString();
@@ -209,7 +213,112 @@ public class Main
             }
             else
             {
+                System.out.print("\fWhat is your Rambook name? ");
+                String name = Keyboard.readString();
+                User u = r.getUser(name);
+                int userVal=0;
+                while(userVal==0)
+                {
+                    System.out.print("\f"+homePage(u));
+                    int val=Keyboard.readInt();
+                    if(val==1)
+                    {
+                        System.out.print("\f"+u.toString());
+                        System.out.print("\n\n\n1. Exit \t2. Sign Out");
+                        int ans2=Keyboard.readInt();
+                        if(ans2==1)
+                        {
+                            System.out.print("\f"+homePage(u));
+                        }
+                    }
+                    else if(val==2)
+                        {
+                            int addUser =0;
+                            while(addUser==0)
+                            {
+                                System.out.print("\fWho would you like to add? ");
+                                String userName=Keyboard.readString();
+                                if(r.getUser(userName)==null)
+                                {
+                                    System.out.println("Sorry this user does not exist");
+                                    System.out.print("Would you like to try another name? ");
+                                    String ans=Keyboard.readString();
+                                    while((!(ans.equals("yes")))||(!(ans.equals("no"))))
+                                    {
+                                        System.out.print("I'm Sorry, please try again: ");
+                                        ans=Keyboard.readString();
+                                    }
+                                    if(ans.equals("no"))
+                                    {
+                                        addUser=1;
+                                    }
+                                }
+                                else
+                                {
+                                    u.addFriend(r.getUser(userName));
+                                    System.out.print("Would you like to try another name? ");
+                                    String ans=Keyboard.readString();
+                                    while(!(ans.equals("yes")||ans.equals("no")))
+                                    {
+                                        System.out.print("I'm Sorry, please try again: ");
+                                        ans=Keyboard.readString();
+                                    }
+                                    if(ans.equals("no"))
+                                    {
+                                        addUser=1;
+                                    }
+                                }
+                            }
+                        }
+                        else if(val==3)
+                        {
+                            int remfri=0;
+                            while(remfri==0)
+                            {
+                                System.out.print("\fWho would you like to remove? ");
+                                String remfr = Keyboard.readString();
+                                boolean validfriend=false;
+                                for(int i=0;i<u.countFriends();i++)
+                                {
+                                    if(u.getFriendsList().get(i).getName()==remfr)
+                                    {
+                                        validfriend=true;
+                                    }
+                                }
+                                while(r.getUser(remfr)==null || validfriend==false)
+                                {
+                                    System.out.println("Sorry, please try again ");
+                                    System.out.print("Who would you like to remove? ");
+                                    remfr = Keyboard.readString();
+                                }
+                                u.unfriend(remfr);
+                                System.out.print("Would you like to remove anyone else? ");
+                                String remfra =Keyboard.readString();
+                                while(!(remfra.equals("yes")||remfra.equals("no")))
+                                {
+                                    System.out.println("Sorry, please try again ");
+                                    System.out.print("Would you like to remove anyone else? ");
+                                    remfra = Keyboard.readString();
+                                }
+                                if(remfra.equals("no"))
+                                {
+                                    remfri=1;
+                                }
+                            }
+                        }
+                        else if(val==4)
+                        {
 
+                        }
+                        else if(val==5)
+                        {
+
+                        }
+                        else if(val==6)
+                        {
+
+                        }
+                }
             }
 
         }
