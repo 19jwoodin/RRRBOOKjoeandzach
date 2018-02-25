@@ -63,7 +63,10 @@ public class User
     {
         return name;
     }//END getName
-    
+    public String getHometown()
+    {
+        return hometown;
+    }
     public ArrayList<User> getFriendsList()
     {
         return friendsList;
@@ -162,7 +165,7 @@ public class User
         {
             for(int x=0;x<this.friendsList.get(i).friendsList.size();x++)
             {
-                if(this.friendsList.get(i).friendsList.get(x).hometown.equals(this.hometown))
+                if(this.friendsList.get(i).friendsList.get(x).getHometown().equals(this.hometown))
                 {
                     list.add(this.friendsList.get(i).friendsList.get(x));
                 }
@@ -175,6 +178,7 @@ public class User
                 if(this.friendsList.get(i).equals(list.get(x)))
                 {
                     list.remove(x);
+                    x--;
                 }
             }
         }
@@ -183,8 +187,10 @@ public class User
             if(this.equals(list.get(i)))
             {
                 list.remove(i);
+                i--;
             }
         }
+        ArrayList<User> list2;
         int num=0;
         int num2=0;
         if(list.size()==0)
@@ -204,5 +210,6 @@ public class User
             return list.get(num);
         }
     }
+    
 }//END CLASS
 
