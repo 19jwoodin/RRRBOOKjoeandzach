@@ -158,17 +158,17 @@ public class User
     public User suggestAFriend()
     {
         ArrayList<User> list = new ArrayList<User>();
-        for(int i =0; i<friendsList.size();i++)
+        for(int i =0; i<this.friendsList.size();i++)
         {
-            for(int x=0;x<friendsList.get(i).friendsList.size();x++)
+            for(int x=0;x<this.friendsList.get(i).friendsList.size();x++)
             {
-                if(friendsList.get(i).friendsList.get(x).hometown.equals(hometown))
+                if(this.friendsList.get(i).friendsList.get(x).hometown.equals(this.hometown))
                 {
-                    list.add(friendsList.get(i).friendsList.get(x));
+                    list.add(this.friendsList.get(i).friendsList.get(x));
                 }
             }
         }
-        for(int i =0; i<friendsList.size();i++)
+        for(int i =0; i<this.friendsList.size();i++)
         {
             for(int x=0;x<list.size();x++)
             {
@@ -180,7 +180,7 @@ public class User
         }
         for(int i =0; i<list.size();i++)
         {
-            if(list.get(i).equals(this))
+            if(this.equals(list.get(i)))
             {
                 list.remove(i);
             }
