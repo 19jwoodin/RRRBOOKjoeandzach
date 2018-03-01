@@ -8,19 +8,36 @@ public class User
     private String hometown;
     private String[] schools;
     private ArrayList<User> friendsList;
-
+    private String username;
+    private String password;
     //CONSTRUCTOR - DONE FOR YOU
     //NOTE - it leaves the friendsList empty
-    public User(String n, int a, String h, String[] s)
+    public User(String n, int a, String h, String[] s, String u,String p)
     {
         name = n;
         age = a;
         hometown = h;
         schools = s;
         friendsList = new ArrayList<User>(); 
-
+        username=u;
+        password=p;
     }//END Constructor
-
+    public void setUserName(String u)
+    {
+        username=u;
+    }
+    public void setPassword(String p)
+    {
+        password=p;
+        }
+    public String getUserName()
+    {
+        return username;
+    }
+    public String getPass()
+    {
+        return password;
+    }
     // DONE FOR YOU
     // Accepts a List of Users that will replace the current friendsList
     public void bulkAddFriends(ArrayList<User> u)
@@ -190,19 +207,47 @@ public class User
                 i--;
             }
         }
-        ArrayList<User> list2;
+        ArrayList<User> list2=new ArrayList<User>();;
+        for(int i =0; i<this.friendsList.size();i++)
+        {
+            for(int x=0;x<this.friendsList.get(i).friendsList.size();x++)
+            {
+                
+                    list2.add(this.friendsList.get(i).friendsList.get(x));
+                
+            }
+        }
+        for(int i =0; i<this.friendsList.size();i++)
+        {
+            for(int x=0;x<list2.size();x++)
+            {
+                if(this.friendsList.get(i).equals(list2.get(x)))
+                {
+                    list2.remove(x);
+                    x--;
+                }
+            }
+        }
+        for(int i =0; i<list2.size();i++)
+        {
+            if(this.equals(list2.get(i)))
+            {
+                list2.remove(i);
+                i--;
+            }
+        }
         int num=0;
-        int num2=0;
         if(list.size()==0)
         {
-            num=(int)Math.random()*friendsList.size();
-            num2=(int)Math.random()*friendsList.get(num).friendsList.size();
-            while(friendsList.get(num).friendsList.get(num2).equals(this))
+            if(list2.size()==0)
             {
-                num=(int)Math.random()*friendsList.size();
-                num2=(int)Math.random()*friendsList.get(num).friendsList.size();
+                return null;
             }
-            return friendsList.get(num).friendsList.get(num2);
+            else
+            {
+                num = (int)Math.random()*list2.size();
+                return list2.get(num);
+                }
         }
         else
         {

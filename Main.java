@@ -6,6 +6,57 @@ public class Main
     {
         RamBook r = new RamBook();
         //r.printAllUsers();
+        try{Thread.sleep(1000);}
+        catch(InterruptedException ie){}
+        System.out.print("W");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("E");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("L");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("C");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("O");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("M");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("E");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print(" T");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("O");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print(" R");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("A");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("M");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("B");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("O");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("O");
+        try{Thread.sleep(150);}
+        catch(InterruptedException ie){}
+        System.out.print("K");
+        try{Thread.sleep(1000);}
+        catch(InterruptedException ie){}
+
         int startVal=0;
         while(startVal==0)
         {
@@ -19,7 +70,23 @@ public class Main
             }
             if(anser.equals("no")) //create ac
             {
-                System.out.print("\fWhat is your name? ");
+                System.out.print("\fType in a username: ");
+                String un=Keyboard.readString();
+                while(r.getUser2(un)!=null)
+                {
+                    System.out.println("Sorry, this username already exists.");
+                    System.out.print("Type in a username: ");
+                    un=Keyboard.readString();
+                }
+                System.out.print("Type in a password: ");
+                String pass=Keyboard.readString();
+                /*while(r.getUserPass(pass)!=null)
+                {
+                System.out.println("Sorry, this pasword already exists.");
+                System.out.print("Type in a password: ");
+                pass=Keyboard.readString();
+                }*/
+                System.out.print("What is your name? ");
                 String name = Keyboard.readString();
                 System.out.println("Nice to meet you, "+name);
                 System.out.print("\nHow old are you? ");
@@ -54,7 +121,7 @@ public class Main
                         }
                     }
                 }
-                User user1=new User(name,age,hometown,schools);
+                User user1=new User(name,age,hometown,schools,un,pass);
                 r.allUsers.add(user1);
                 int userVal=0;
                 while(userVal==0)
@@ -84,7 +151,7 @@ public class Main
                             int addUser =0;
                             while(addUser==0)
                             {
-
+                                
                                 System.out.print("\fWho would you like to add? ");
                                 String userName=Keyboard.readString();
                                 boolean validfriend=false;
@@ -133,27 +200,7 @@ public class Main
                                 {
                                     user1.addFriend(r.getUser(userName));
                                     int while1=0;
-                                    while(while1==0)
-                                    {
-                                        System.out.print("Would you like to try another name? ");
-
-                                        String ans=Keyboard.readString();
-                                        if(ans.equals("no"))
-                                        {
-                                            addUser=1;
-                                            while1=1;
-                                        }
-                                        else if(ans.equals("yes"))
-                                        {
-                                            addUser=0;
-                                            while1=1;
-                                        }
-                                        else
-                                        {
-                                            System.out.println("Sorry, please try again: ");
-
-                                        }
-                                    }
+                                    
                                 }
                             }
                         }
@@ -316,7 +363,7 @@ public class Main
                             int mutfr=0;
                             while(mutfr==0)
                             {
-                                System.out.print("\fImput a friend to find mutual friends with: ");
+                                System.out.print("\fInput a friend to find mutual friends with: ");
                                 String mutuser=Keyboard.readString();
                                 boolean validfriend=false;
                                 for(int i=0;i<user1.countFriends();i++)
@@ -464,22 +511,31 @@ public class Main
             }
             else //existing asccount
             {
-                System.out.print("\fWhat is your Rambook name? ");
-                String name = Keyboard.readString();
-                boolean isAUser=false;
-                for(int i=0; i<r.allUsers.size();i++)
+                System.out.print("\fUsername: ");
+                String usern=Keyboard.readString();
+                User u;
+                while(r.getUser2(usern)==null)
                 {
-                    if(r.allUsers.get(i).getName().equals(name))
+                    System.out.println("This username does not exist. ");
+                    System.out.print("Username: ");
+                    usern=Keyboard.readString();
+                }
+                if(!usern.equals(" "))
+                {
+                    System.out.print("\nPassword: ");
+                    String passw=Keyboard.readString();
+                    while(!r.getUser2(usern).getPass().equals(passw))
                     {
-                        isAUser=true;
+                        System.out.println("Wrong Password ");
+                        System.out.print("Password: ");
+                        passw=Keyboard.readString();
                     }
                 }
-                while(isAUser==false)
+                if(usern.equals(" "))
                 {
-                    System.out.println("Sorry, this user does not exist");
-                    System.out.print("What is your Rambook name? ");
-                    name = Keyboard.readString();
-                    isAUser=false;
+                    System.out.print("\fWhat is your Rambook name? ");
+                    String name = Keyboard.readString();
+                    boolean isAUser=false;
                     for(int i=0; i<r.allUsers.size();i++)
                     {
                         if(r.allUsers.get(i).getName().equals(name))
@@ -487,8 +543,26 @@ public class Main
                             isAUser=true;
                         }
                     }
+                    while(isAUser==false)
+                    {
+                        System.out.println("Sorry, this user does not exist");
+                        System.out.print("What is your Rambook name? ");
+                        name = Keyboard.readString();
+                        isAUser=false;
+                        for(int i=0; i<r.allUsers.size();i++)
+                        {
+                            if(r.allUsers.get(i).getName().equals(name))
+                            {
+                                isAUser=true;
+                            }
+                        }
+                    }
+                    u = r.getUser(name);
                 }
-                User u = r.getUser(name);
+                else
+                {
+                    u =r.getUser2(usern);
+                }
                 int userVal=0;
                 while(userVal==0)
                 {
@@ -652,7 +726,7 @@ public class Main
                             int mutfr=0;
                             while(mutfr==0)
                             {
-                                System.out.print("\fImput a friend to find mutual friends with: ");
+                                System.out.print("\fInput a friend to find mutual friends with: ");
                                 String mutuser=Keyboard.readString();
                                 boolean validfriend=false;
                                 for(int i=0;i<u.countFriends();i++)
