@@ -188,12 +188,14 @@ public class Main
                     }
                     else if(val==1)
                     {
-                        System.out.print("\f"+user1.toString());
+                        System.out.println("\f***********My Page***********");
+                        System.out.print(user1.toString());
                         System.out.print("\n\n\n1. Exit ");
                         int ans2=Keyboard.readInt();
                         while(ans2!=1)
                         {
-                            System.out.print("\f"+user1.toString());
+                            System.out.println("\f***********My Page***********");
+                            System.out.print(user1.toString());
                             System.out.print("\n\n\n1. Exit ");
                             ans2=Keyboard.readInt();
                         }

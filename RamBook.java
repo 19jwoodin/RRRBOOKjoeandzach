@@ -31,7 +31,7 @@ public class RamBook
         allUsers.add(new User("Sahil", 32, "Syracuse", new String[]{"Marcellus HS", "Bucknell U", "Binghamton U"},"user16","pass"));
         allUsers.add(new User("Michael", 24, "Mottville", new String[]{null, null, null},"user17","pass"));
         allUsers.add(new User("Isabel", 31, "DeWitt", new String[]{"JDHS", "Oneonta", "Stanford"},"user18","pass"));
-        allUsers.add(new User("Nico", 60, "Los Angeles", new String[]{"LA HS", null, null},"user19","pass1"));
+        allUsers.add(new User("Nico", 60, "Los Angeles", new String[]{"LA HS", null, null},"user19","pass"));
         allUsers.add(new User("Woodin", 99, "Syracuse", new String[]{"Marcellus HS", "OCC", null},"user20","pass"));
 
         //Randomly Generate Friends
