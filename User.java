@@ -12,6 +12,16 @@ public class User
     private String password;
     //CONSTRUCTOR - DONE FOR YOU
     //NOTE - it leaves the friendsList empty
+    public User()
+    {
+        name = "";
+        age = 0;
+        hometown = "";
+        schools = new String[3];
+        friendsList = new ArrayList<User>(); 
+        username="";
+        password="";
+    }
     public User(String n, int a, String h, String[] s, String u,String p)
     {
         name = n;
@@ -67,7 +77,7 @@ public class User
         //Need to include schools and friendslist
         for(int i =0; i<friendsList.size();i++)
         {
-            retStr+=" "+friendsList.get(i).getName()+" \n";
+            retStr+=" "+friendsList.get(i).getName()+"("+friendsList.get(i).getUserName()+") \n";
         }
         retStr+="\n";
 
@@ -92,6 +102,19 @@ public class User
     public String getSchool(int i)
     {
         return this.schools[i];
+    }
+    
+    public String printFriends()
+    {
+        String ret=name +"'s Friends:\n";
+        int x=1;
+        for(int i=0;i<friendsList.size();i++)
+        {
+            ret+=x+". "+friendsList.get(i).getName()+"- "+friendsList.get(i).getUserName();
+            ret+="\n";
+            x++;
+        }
+        return ret;
     }
     //equals(User other) - this User and other are equal if name, age, and hometown match.
 
