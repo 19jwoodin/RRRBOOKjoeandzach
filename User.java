@@ -10,6 +10,7 @@ public class User
     private ArrayList<User> friendsList;
     private String username;
     private String password;
+    private ArrayList<String> messages;
     //CONSTRUCTOR - DONE FOR YOU
     //NOTE - it leaves the friendsList empty
     public User()
@@ -21,6 +22,7 @@ public class User
         friendsList = new ArrayList<User>(); 
         username="";
         password="";
+        messages=new ArrayList<String>();
     }
     public User(String n, int a, String h, String[] s, String u,String p)
     {
@@ -31,6 +33,7 @@ public class User
         friendsList = new ArrayList<User>(); 
         username=u;
         password=p;
+        messages=new ArrayList<String>();
     }//END Constructor
     public void setUserName(String u)
     {
@@ -54,12 +57,44 @@ public class User
     {
         friendsList = u;
     }//END bulkAddFriends
-
+    public void addMessage(String m)
+    {
+        messages.add(m);
+    }
+    public ArrayList<String> getMessages()
+    {
+        return messages;
+    }
+    public String printMessages()
+    {
+        String ret="";
+        if(messages.size()>0)
+        {
+            for(String m: messages)
+            {
+                ret+=m+"\n";
+            }
+            return ret;
+            }
+            else
+            {
+                return "You have no new messages";
+            }
+    }
+    public void clearMessages()
+    {
+        for(int i=0;i<messages.size();i++)
+        {
+            messages.remove(i);
+            i--;
+        }
+    }
     // STARTED FOR YOU
     // Should print out all information for the user, nicely formatted
     public String toString()
     {
         String retStr = "";
+        retStr+="UserName: "+username+"\n";
         retStr += "Name: " + name + "\n";
         retStr += "Age: " + age + "\n";
         retStr += "Hometown: " + hometown + "\n";
@@ -191,6 +226,7 @@ public class User
                     if(this.getSchool(x)==(friendsList.get(i).getSchool(x)))
                     {
                         list.add(friendsList.get(i));
+                        x=schools.length;
                     }
                 }
             }

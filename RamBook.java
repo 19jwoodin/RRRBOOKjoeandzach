@@ -54,7 +54,7 @@ public class RamBook
         }
 
     }//END CONSTRUCTOR
-    
+
     // Prints out all the users
     public void printAllUsers()
     {
@@ -81,7 +81,7 @@ public class RamBook
         }
         return null;
     }
-    
+
     public User getUser2(String uname)
     {
         for(int i=0; i<allUsers.size();i++)
@@ -110,13 +110,26 @@ public class RamBook
     {
         String ret="\nAll Users:\n";
         int x=1;
+        int y=0;
         for(int i=0; i<allUsers.size();i++)
         {
-            if(!(r.equals(allUsers.get(i))))
+            y=1;
+            for(int z=0; z<r.getFriendsList().size();z++)
             {
-                ret+="\n"+x+". "+allUsers.get(i).getName()+"- "+allUsers.get(i).getUserName();
-                x++;
+               y=1;
+               if(!(r.equals(allUsers.get(i)))&&r.getFriendsList().get(z).equals(allUsers.get(i)))
+               {
+                   ret+="\n"+x+". "+allUsers.get(i).getName()+"- "+allUsers.get(i).getUserName()+" --Friend";
+                   z++;
+                   y=0;
+                   z=r.getFriendsList().size();
+                }
             }
+            if(!(r.equals(allUsers.get(i)))&&y==1)
+                    {
+                        ret+="\n"+x+". "+allUsers.get(i).getName()+"- "+allUsers.get(i).getUserName();
+                        x++;
+                    }
         }
         return ret;
     }
