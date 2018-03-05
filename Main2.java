@@ -1,6 +1,6 @@
 import java.util.*;
 import cs1.*;
-public class Main
+public class Main2
 {
     public static void main(String[] args)
     {
@@ -63,21 +63,21 @@ public class Main
         while(startVal==0)
         {
             //IF you have an account
-            System.out.print("\f▂ ▄ ▅ ▆ ▇ █ ωεℓcσмε тσ яαмвσσк █ ▇ ▆ ▅ ▄ ▂\n");
+            System.out.print("\f*****Welcome to Rambook*****\n");
 
-            System.out.println("\n➽1 Login");
-            System.out.println("\n➽2 Create an account");
-            System.out.println("\n➽3 Exit");
-            System.out.println("\n\n➼Choose a valid option: ");
+            System.out.println("\n1 Login");
+            System.out.println("\n2 Create an account");
+            System.out.println("\n3 Exit");
+            System.out.println("\n\nChoose a valid option: ");
             int anser=Keyboard.readInt();
             while(anser!=1&&anser!=2&&anser!=3)
             {
                 //System.out.println("\f***********Welcome to RamBook***********");
-                System.out.print("\f▂ ▄ ▅ ▆ ▇ █ ωεℓcσмε тσ яαмвσσк █ ▇ ▆ ▅ ▄ ▂\n");
-                System.out.println("\n➽1 Login");
-                System.out.println("\n➽2 Create an account");
-                System.out.println("\n➽3 Exit");
-                System.out.println("\n\n➼Choose a valid option: ");
+                System.out.print("\f*****Welcome to Rambook*****\n");
+                System.out.println("\n1 Login");
+                System.out.println("\n2 Create an account");
+                System.out.println("\n3 Exit");
+                System.out.println("\n\nChoose a valid option: ");
                 anser=Keyboard.readInt();
             }
             User user1=new User();
@@ -170,7 +170,7 @@ public class Main
             else if(anser==3)
             {
                 startVal=1;
-                System.out.print("\f◎[▪‿▪]◎ THANK YOU ◎[▪‿▪]◎");
+                System.out.print("\fTHANK YOU");
                 rambook=0;
             }
             if(rambook==1)
@@ -1097,20 +1097,20 @@ public class Main
     public static String homePage(User r)
     {
         String ret ="";
-        ret+="               ✯RamBook✯";
+        ret+="               RamBook";
         //ret+="\n***********Welcome, "+r1getName()+"***********";
-        ret+="\n♚♛♜♝♞♟♦Welcome, "+r.getName()+"♦♟♞♝♜♛♚";
-        ret+="\n\n➽1\tView My Page";
-        ret+="\n➽2\tChange Password";
-        ret+="\n➽3\tAdd a friend";
-        ret+="\n➽4\tRemove a freind";
-        ret+="\n➽5\tFind Mutual Friends";
-        ret+="\n➽6\tFind Hometown Friends/Schoolmates";
-        ret+="\n➽7\tMessage A Friend";
-        ret+="\n➽8\tView Messages";
-        ret+="\n➽9\tTIC TAC TOE";
-        ret+="\n➽10\tLogout";
-        ret+="\n\n➼Choose a valid option: ";
+        ret+="\n******Welcome, "+r.getName()+"*******";
+        ret+="\n\n1\tView My Page";
+        ret+="\n2\tChange Password";
+        ret+="\n3\tAdd a friend";
+        ret+="\n4\tRemove a freind";
+        ret+="\n5\tFind Mutual Friends";
+        ret+="\n6\tFind Hometown Friends/Schoolmates";
+        ret+="\n7\tMessage A Friend";
+        ret+="\n8\tView Messages";
+        ret+="\n9\tTIC TAC TOE";
+        ret+="\n10\tLogout";
+        ret+="\n\nChoose a valid option: ";
 
         return ret;
 
