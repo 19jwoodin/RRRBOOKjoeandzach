@@ -313,7 +313,7 @@ public class Main
                                                 System.out.println("Sorry, please try again: ");
 
                                             }
-                                            
+
                                         }
                                     }
                                     else if(x==1)
@@ -638,26 +638,107 @@ public class Main
                                 else
                                 {
                                     System.out.println("\f***********Message A Friend***********");
-                                    System.out.print("\nMessage for "+r1.getUser2(mfr).getName()+":");
-                                    String mess=""+user1.getName()+"- ";
-                                    mess+=Keyboard.readString();
-                                    try{Thread.sleep(1000);}
-                                    catch(InterruptedException ie){}
-                                    System.out.print("Message Sent!");
-                                    try{Thread.sleep(1000);}
-                                    catch(InterruptedException ie){}
-                                    r1.getUser2(mfr).addMessage(mess);
-                                    System.out.print("\nWould you like to message anyone else? ");
-                                    String remfra =Keyboard.readString();
-                                    while(!(remfra.equals("yes")||remfra.equals("no")))
+                                    System.out.print("\n1. Emoji\n2. Personal Message\n Choose a valid option: ");
+                                    int option=1;
+                                    int opt=0;
+                                    while(option==1)
                                     {
-                                        System.out.println("Sorry, please try again ");
-                                        System.out.print("Would you like to remove anyone else? ");
-                                        remfra = Keyboard.readString();
+                                        System.out.println("\f***********Message A Friend***********");
+                                        System.out.print("\n1. Emoji\n2. Personal Message\n Choose a valid option: ");
+                                        opt=Keyboard.readInt();
+                                        if(opt==1||opt==2)
+                                            option=2;
                                     }
-                                    if(remfra.equals("no"))
+                                    if(opt==2)
                                     {
-                                        mfri=1;
+                                        System.out.println("\f***********Message A Friend***********");
+                                        System.out.print("\nMessage for "+r1.getUser2(mfr).getName()+":");
+                                        String mess=""+user1.getName()+"- ";
+                                        mess+=Keyboard.readString();
+                                        try{Thread.sleep(1000);}
+                                        catch(InterruptedException ie){}
+                                        System.out.print("Message Sent!");
+                                        try{Thread.sleep(1000);}
+                                        catch(InterruptedException ie){}
+                                        r1.getUser2(mfr).addMessage(mess);
+                                        System.out.print("\nWould you like to message anyone else? ");
+                                        String remfra =Keyboard.readString();
+                                        while(!(remfra.equals("yes")||remfra.equals("no")))
+                                        {
+                                            System.out.println("Sorry, please try again ");
+                                            System.out.print("Would you like to remove anyone else? ");
+                                            remfra = Keyboard.readString();
+                                        }
+                                        if(remfra.equals("no"))
+                                        {
+                                            mfri=1;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        System.out.println("\f***********Message A Friend***********");
+                                        System.out.print("\nMessage for "+r1.getUser2(mfr).getName()+":");
+                                        System.out.print("\n\n1. ☆(❁‿❁)☆\n2. ( ͡° ͜ʖ ͡°)\n3.  (。♡‿♡。)\n4. ˁ˚ᴥ˚ˀ\n5. ⊙﹏⊙\n Your Choice: ");
+                                        int em=0;
+                                        int wh=0;
+                                        while(wh==0)
+                                        {
+                                            System.out.println("\f***********Message A Friend***********");
+                                            System.out.print("\nMessage for "+r1.getUser2(mfr).getName()+":");
+                                            System.out.print("\n\n1. ☆(❁‿❁)☆\n2. ( ͡° ͜ʖ ͡°)\n3.  (。♡‿♡。)\n4. ˁ˚ᴥ˚ˀ\n5. ⊙﹏⊙\n Your Choice: ");
+                                            em=Keyboard.readInt();
+                                            if(em==1||em==2||em==3||em==4||em==5)
+                                                wh=1;
+
+                                        }
+                                        System.out.println("\f***********Message A Friend***********");
+                                        System.out.print("\nMessage for "+r1.getUser2(mfr).getName()+":");
+                                        System.out.print("\n\n1. ☆(❁‿❁)☆\n2. ( ͡° ͜ʖ ͡°)\n3.  (。♡‿♡。)\n4. ˁ˚ᴥ˚ˀ\n5. ⊙﹏⊙\n  Your Choice:  ");
+                                        
+                                        
+                                        String mess=""+user1.getName()+"- ";
+                                        if(em==1)
+                                        {
+                                            r1.getUser2(mfr).addMessage(mess+"☆(❁‿❁)☆");
+                                            System.out.print("☆(❁‿❁)☆");
+                                        }
+                                        if(em==2)
+                                        {
+                                            r1.getUser2(mfr).addMessage(mess+"( ͡° ͜ʖ ͡°)");
+                                            System.out.print("( ͡° ͜ʖ ͡°)");
+                                        }
+                                        if(em==3)
+                                        {
+                                            r1.getUser2(mfr).addMessage(mess+"(。♡‿♡。)");
+                                            System.out.print("(。♡‿♡。)");
+                                        }
+                                        if(em==4)
+                                        {
+                                            r1.getUser2(mfr).addMessage(mess+"ˁ˚ᴥ˚ˀ");
+                                            System.out.print("ˁ˚ᴥ˚ˀ");
+                                        }
+                                        if(em==5)
+                                        {
+                                            r1.getUser2(mfr).addMessage(mess+"⊙﹏⊙");
+                                            System.out.print("⊙﹏⊙");
+                                        }
+                                        try{Thread.sleep(1000);}
+                                        catch(InterruptedException ie){}
+                                        System.out.print("\nMessage Sent!");
+                                        try{Thread.sleep(1000);}
+                                        catch(InterruptedException ie){}
+                                        System.out.print("\nWould you like to message anyone else? ");
+                                        String remfra =Keyboard.readString();
+                                        while(!(remfra.equals("yes")||remfra.equals("no")))
+                                        {
+                                            System.out.println("Sorry, please try again ");
+                                            System.out.print("Would you like to remove anyone else? ");
+                                            remfra = Keyboard.readString();
+                                        }
+                                        if(remfra.equals("no"))
+                                        {
+                                            mfri=1;
+                                        }
                                     }
                                 }
                             }
